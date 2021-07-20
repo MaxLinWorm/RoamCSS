@@ -1,0 +1,492 @@
+/* === Para Hack, Extensões, Scripts do Roam === */
+/* Meta/Tipo/Autor/C3Founder - CCC Roam Enhancement - PDF */
+@import url('https://c3founder.github.io/Roam-Enhancement/enhancedPDF.css');
+
+/* === VARIÁVEIS === */
+:root {
+    /* Do tango */
+    --body-background-color: rgb(255, 255, 255);
+    --main-background-color: rgb(249, 250, 250);
+    /*hsl(210, 9%, 98%);*/
+    --border-color: rgba(0, 0, 0, 0.08);
+    /* rgba(0, 0, 0, 0.08)*/
+    --subtle-border-color: rgba(0, 0, 0, .05);
+    --font-color:
+        /*hsl(205, 23%, 16%)(=31,42,50);*/
+        rgb(32, 43, 51);
+    --font-color-lighter: rgb(102, 102, 102);
+    /*hsl(0, 0%, 40%);*/
+    --reference-item-background: rgb(252, 252, 252);
+    /*hsl(0, 0%, 99%)*/
+    /* Minhas */
+    --box-shadow-forte-4lados: 0px 2px 14px rgba(0, 0, 0, 0.25), 2px 0px 14px rgba(0, 0, 0, 0.025);
+    --box-shadow-sutil-4lados: 0px 2px 14px rgba(0, 0, 0, 0.04), 2px 0px 14px rgba(0, 0, 0, 0.04);
+    --references-bread-crumb-font-size: 10px;
+    --body-font-color: rgb(31, 42, 50);
+    /*orig = rgb(32, 43, 51)*/
+    --body-font-size: 15px;
+    --body-font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', Roboto, OpenSans, Inter;
+    --pagetitle-font-size: 27px;
+    /*36px*/
+    --heading1-font-size: 24px;
+    /*orig 1.8em = 27px*/
+    --heading1-font-family: var(--body-font-family);
+    --heading2-font-size: 21px;
+    ;
+    /*orig 1.4em = 21px*/
+    --heading2-font-family: var(--body-font-family);
+    --heading3-font-size: ;
+    --heading3-font-family: var(--body-font-family);
+    /* font-weight: 500; font-size: 1.2em (18px); color: #5C7080; */
+    --scroll-bar-color: #888;
+    --scroll-bar-color-hover: #555;
+    --code-font-family: monospace;
+    --code-font-size: 15px;
+}
+
+/* === Scrollbars === */
+:-webkit-scrollbar {
+    background: var(--main-back-groundcolor) !important;
+    width: 6px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--scroll-bar-color);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* === MODO DE PÁGINA === */
+/* Tamanho da "página"*/
+.rm-article-wrapper.rm-spacing--small {
+    padding-left: calc((100% - 916px) / 2);
+    /* para ficar semelhante ao WorkFlowy */
+    padding-right: calc((100% - 916px) / 2);
+}
+
+/* Página */
+/*Retirado de Better Roam Research by Fabrizio Rinaldi | linuz90 */
+html,
+body,
+app {
+    background: var(--main-background-color)
+        /*var(--page-background-color)!important*/
+    ;
+}
+
+.roam-center,
+.roam-body-main {
+    border-left: 1px solid var(--subtle-border-color) !important;
+    border-top: 1px solid var(--subtle-border-color) !important;
+    border-right: 1px solid var(--subtle-border-color) !important;
+    border-radius: 12px 12px 0 0;
+    box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.03) !important;
+    background: var(--body-background-color);
+    /*var(--main-area-background-color) !important;*/
+    /* Centraliza a página principal MODIFIQUEI */
+    margin-right: auto;
+    /*8px*/
+    margin-left: auto;
+    /*8px*/
+    /* MODIFIQUEI Faz com que a página principal fique num tamanho menor */
+    max-width: min(900px, 100% - 16px);
+}
+
+/* Sidebar, topbar sem fundo, da cor do Background
+Retirado de Tango by WIRTZ, Dan e de Better Roam */
+
+/* Retira logo do Roam do sidebar direito */
+roam-sidebar-logo {
+    display: none !important;
+}
+
+/* Top Bar */
+.roam-topbar {
+    background: var(--main-background-color) !important;
+    border-bottom: none !important;
+}
+
+.roam-topbar input#find-or-create-input {
+    box-shadow: none !important;
+    border: 1px solid var(--border-color) !important;
+}
+
+.roam-body,
+.roam-topbar,
+right-sidebar,
+.roam-sidebar-container {
+    background: var(--main-background-color) !important;
+    box-shadow: none !important;
+    /* Incluído Do Better Roam */
+}
+
+right-sidebar {
+    border: none !important;
+    transition: none !important;
+    overflow: hidden !important;
+}
+
+/* Não sei o que faz */
+right-sidebar roam-right-sidebar-content>div[style] {
+    border-bottom: 1px solid var(--subtle-border-color) !important;
+}
+
+right-sidebar .hoverparent,
+right-sidebar .react-resizable {
+    max-width: 100% !important;
+}
+
+right-sidebar .hoverparent img,
+right-sidebar .react-resizable img {
+    max-width: 100% !important;
+}
+
+/* Fontes do side bar direito*/
+.roam-body .roam-app .roam-sidebar-container .roam-sidebar-content .log-button,
+/* Adicionei - muda ALL PAGES */
+.roam-body .roam-app .roam-sidebar-container .roam-sidebar-content .log-button>.flex-h-box,
+.roam-body .roam-app .roam-sidebar-container .roam-sidebar-content .starred-pages-wrapper,
+.roam-body .roam-app .roam-sidebar-container .roam-sidebar-content .starred-pages-wrapper .starred-pages .page,
+.bp3-minimal>div {
+    color: var(--font-color-lighter) !important;
+    font-size: 13px !important;
+}
+
+/* Coloca os shortcuts do side bar esq mais para esq*/
+/* Igual Better Roam */
+/* Posicionamento dos itens do sidebar esquerdo */
+.roam-sidebar-content {
+    padding: 0 !important;
+    /*padding-left: 5px !important; /*Inclui */
+}
+
+.roam-sidebar-content>div:not(.log-button):not(:first-child) {
+    padding: 0 !important;
+    /*padding-left: 5px !important; /* Inclui */
+}
+
+/* Abaixa os itens do sidebar esq */
+/* Igual Better Roam */
+.roam-sidebar-content>div:first-child {
+    padding-bottom: 18px !important;
+}
+
+/* Diminui line height*/
+/* Igual Better Roam */
+.roam-sidebar-content div {
+    line-height: 1.3
+        /*1.2*/
+         !important;
+}
+
+/* Nome do DB no sidebar esq */
+/* Igual Better Roam */
+.roam-sidebar-content .rm-db-title {
+    margin-top: 0 !important;
+    color: var(--font-color-lighter) !important;
+}
+
+/* Retira linha divisória entre daily notes etc. e shortcuts */
+/* Igual ao Better */
+.starred-pages-wrapper>div:first-child {
+    display: none;
+}
+
+/* Retira cor do hover do sidebar esquerdo */
+/* Igual ao Better Roam */
+.roam-body .roam-app .roam-sidebar-container .roam-sidebar-content .log-button:hover,
+.roam-body .roam-app .roam-sidebar-container .roam-sidebar-content .starred-pages-wrapper .starred-pages .page:hover {
+    background-color: transparent !important;
+    color: var(--font-color) !important;
+}
+
+/* Span do "SHORTCUTS" no sidebar esq */
+/* Igual ao Better */
+.starred-pages-wrapper .flex-h-box,
+.starred-pages-wrapper .flex-h-box span {
+    font-size: 13px !important;
+    opacity: 0.6 !important;
+    /*padding-left: 2px; /* Inclui */
+}
+
+/* Realinha os itens do sidebar esq */
+/* Igual Better Roam */
+.roam-body .roam-app .roam-sidebar-container .roam-sidebar-content .log-button,
+.roam-body .roam-app .roam-sidebar-container .roam-sidebar-content .starred-pages-wrapper .starred-pages .page {
+    padding: 6px 24px 6px !important;
+}
+
+/* Shortcuts span */
+/* Diferente Better */
+.roam-body .roam-app .roam-sidebar-container .roam-sidebar-content .starred-pages-wrapper .flex-h-box
+
+/*.shortcut*/
+    {
+    padding:
+        /*14px*/
+        0px 24px 0px;
+}
+
+/* Primeira fileira */
+/* Igual Better Roam */
+.roam-body .roam-app .roam-sidebar-container .roam-sidebar-content .top-row {
+    padding: 12px 0 0 20px;
+}
+
+.roam-body .roam-app .roam-sidebar-container .roam-sidebar-content .top-row:hover {
+    background-color: inherit;
+}
+
+/* Retira cor do header de propriedades do ALL PAGES para ficar da mesma cor
+Retirado do Tango by WIRTZ, Dan */
+/* Igual ao Better Roam */
+.rm-all-pages .table .rm-pages-row.rm-pages-row-header {
+    background: var(--main-background-color) !important;
+}
+
+/* === Referências === */
+/* Blocos Retirado do Tango*/
+.rm-reference-item {
+    background: var(--reference-item-background);
+    border: 1px solid var(--subtle-border-color) !important;
+    border-radius: 6px !important;
+    padding: 8px 10px 8px 2px !important;
+}
+
+.rm-reference-item .rm-block-text {
+    font-size: var(--body-font-size) !important;
+}
+
+.rm-reference-container .bp3-button {
+    color: #2b6cb0 !important;
+    /*#182026 !important;*/
+    /* Adicionei font-weight e opacity;*/
+    font-weight: 700 !important;
+    opacity: 1 !important;
+    /* background: #ebf8ff !important; */
+}
+
+.rm-reference-container .bp3-popover-content .flex-h-box div>div>span {
+    color: red !important;
+        /*#202b33*/
+}
+
+/* Indicadores de referências nos blocks - */
+.block-ref-count-button {
+    background: #ebf8ff !important;
+    color: #2b6cb0 !important;
+    font-weight: 700 !important;
+    opacity: 1 !important;
+}
+
+.block-ref-count-button:hover {
+    background: #bee3f8 !important;
+}
+
+/* Em outros elementos (queries, references e mentions) *.
+/* Não funciona, superado pelo .roam
+   article. reference-item */
+.rm-mentions .rm-reference-item {
+    background: white;
+}
+
+.rm-query .rm-reference-item {
+    background: var(--reference-item-background);
+}
+
+.roam-article .rm-reference-item {
+    background: var(--reference-item-background);
+}
+
+/* TODO Não sei -*/
+.block-border-left {
+    border-left-color: red !important;
+    /*var(--subtle-border-color) !important;*/
+}
+
+/* Botão de linked ou unlinked references no final da página */
+.rm-reference-main div>strong {
+    color: gray !important;
+}
+
+/* Breadcrumbs das referências 
+   Meu a partir daqui */
+.rm-zoom .rm-zoom-item .rm-zoom-item-content div,
+.rm-zoom .rm-zoom-item .rm-zoom-item-content textarea {
+    font-size: var(--references-bread-crumb-font-size);
+}
+
+/* Inline references - Border etc inspirado em retirado de Tango by WIRTZ, Dan */
+.rm-inline-references {
+    background-color: rgb(245, 248, 250);
+    /* #F5F8FA = 245, 248, 250 */
+    padding-left: 33px;
+    /* Orig = 20 */
+    border: 1px solid var(--subtle-border-color) !important;
+    border-radius: 6px !important;
+}
+
+/* Embeds */
+/* Na página principal 
+- retirado de Tango by WIRTZ, Dan */
+/*
+.rm-embed-container {
+  background-color: #21282c !important;
+} */
+
+/* Meu, inspirado em retirado de Tango by WIRTZ, Dan */
+.rm-embed-container--block {
+    background-color: var(--reference-item-background);
+    border: 1px solid var(--border-color) !important;
+    /*var(--subtle-border-color)*/
+    border-radius: 6px !important;
+}
+
+/* No sidebar */
+.sidebar-content .rm-embed-container--block {
+    background-color: var(--body-background-color);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--box-shadow-forte-4lados);
+}
+
+/* Queries - retirado de Tango by WIRTZ, Dan */
+.rm-query {
+    border-radius: 4px;
+    /* 6px no Better */
+    /* border: 1px solid var(--subtle-border-color);*/
+    /* No Better Roam */
+}
+
+/* Não tem no Better Roam */
+.rm-query-content {
+    background: white;
+    border-color: var(--subtle-border-color);
+}
+
+/* MEU */
+/* Separador dos blocos (espaço à direito dos blocos de texto normais) quando pequeno o espaço horizontal */
+@media screen and (max-width: 640px) {
+    .rm-block-text+.rm-block-separator {
+        width: 5px;
+        min-width: 5px;
+    }
+
+    /* Compensa diminuição do block-separator */
+    .rm-full-width {
+        margin-right: -5px;
+        /* Era - 140*/
+    }
+
+    .rm-code-block {
+        margin-right: -5px;
+        /* Era -140*/
+    }
+
+    .rm-embed-container {
+        margin-right: -3px;
+        padding-right: 6px
+    }
+
+}
+
+/* Bullets, 
+Estilo dos bullets
+retirado do Roam-o-Mine by YALCINKAYA, Hasan | hafifuyku */
+/* BULLETS */
+.rm-bullet__inner {
+    height: 7px !important;
+    width: 7px !important;
+    margin-left: -1px;
+}
+
+.rm-bullet.rm-bullet--closed .rm-bullet__inner {
+    border: 5px solid #DDE0E2;
+    margin-left: -2px;
+}
+
+/* MEU 
+Espaçamento dos children (que eu chutei o seletor) */
+.rm-block-children.rm-block__children:not(.rm-level-0) {
+    padding-left: 6px;
+}
+
+/* Do Original 
+
+.roam-block-container>.rm-block-children {
+    margin-left: 99px;
+} */
+/* TODO Botão de expansão 
+.bp3-icon-standard.rm-caret {
+  font-size: 16px; /*16px orig 
+} 
+.block-expand {
+	margin-left: -6px;
+}*/
+
+/* === CODE */
+/* Inline Code */
+code,
+kbd,
+pre,
+samp {
+    font-family: var(--code-font-family);
+}
+
+code {
+    font-size: var(--code-font-size);
+}
+
+/* TODO Code Blocks
+wrap lines
+.CodeMirror pre.CodeMirror-line, 
+.CodeMirror pre.CodeMirror-line-like, 
+.CodeMirror-wrap pre, 
+.CodeMirror pre, 
+.CodeMirror-wrap pre {
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+	word-break:  break-word;
+	white-space: normal; /*this is the one that gets you all the time
+} */
+
+/* === Tipografia === */
+/* em geral */
+div,
+textarea {
+    font-family: var(--body-font-family);
+    font-size: var(--body-font-size);
+    letter-spacing: 0;
+}
+
+/* Page Titles */
+/* Editing */
+textarea.rm-title-textarea {
+    font-size: var(--pagetitle-font-size);
+}
+
+/* Sidebar */
+
+.sidebar-content .rm-title-display,
+.sidebar-content .rm-title-editing-display,
+.sidebar-content textarea.rm-title-textarea {
+    font-size: 20px;
+}
+
+/* HEADINGS */
+/* Heading 1 */
+.rm-level1,
+.rm-heading-level-1>.rm-blockself .rm-blockinput {
+    font-size: var(--heading1-font-size);
+    font-family: var(--body-font-family);
+}
+
+/* Daily Pages */
+/* Títulos de páginas anteriores - Retirado de Roam-o-Mine by YALCINKAYA, Hasan | hafifuyku */
+/* Set the previous daily note headers to the same size so they don't jump on hover */
+.roam-log-preview .level2 {
+    font-size: 36px;
+}
