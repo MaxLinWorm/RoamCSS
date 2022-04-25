@@ -1,0 +1,15 @@
+@font-face {
+    font-family: 'Plex Text';
+    src: url('https://assets.website-files.com/6073f890703f6d1fb1bb0d7f/60b0a90a5c701d3ffc30b641_AkkuratLLWeb-Regular.woff2') format('woff2'), url('https://assets.website-files.com/6073f890703f6d1fb1bb0d7f/60b0a96656e7b9b902b3be62_AkkuratLLWeb-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Akkurat';
+    src: url('https://assets.website-files.com/6073f890703f6d1fb1bb0d7f/60b0a9b03cf8530f0b323555_AkkuratLLWeb-Light.woff2') format('woff2'), url('https://assets.website-files.com/6073f890703f6d1fb1bb0d7f/60b0a9c497dfff74d7650078_AkkuratLLWeb-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
